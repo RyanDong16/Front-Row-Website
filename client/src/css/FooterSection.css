@@ -1,0 +1,119 @@
+.footer-section {
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 1.5rem;
+    color: #fff7ff;
+    background:
+        radial-gradient(circle at 20% 0%, rgba(255, 45, 149, 0.28), transparent 32%),
+        radial-gradient(circle at 80% 0%, rgba(143, 67, 255, 0.32), transparent 34%),
+        linear-gradient(135deg, #050208 0%, #12051f 50%, #040407 100%);
+    border-top: 1px solid rgba(255, 214, 107, 0.28);
+    box-shadow:
+        0 -12px 40px rgba(255, 45, 149, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.footer-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 42px 42px;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.footer-section::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -9rem;
+    width: 36rem;
+    height: 20rem;
+    transform: translateX(-50%);
+    background: radial-gradient(
+        ellipse at center,
+        rgba(255, 214, 107, 0.2),
+        transparent 65%
+    );
+    filter: blur(10px);
+    pointer-events: none;
+}
+
+.footer-glow {
+    position: absolute;
+    left: 50%;
+    bottom: -8rem;
+    width: 38rem;
+    height: 18rem;
+    transform: translateX(-50%);
+    background:
+        radial-gradient(circle, rgba(255, 45, 149, 0.2), transparent 60%),
+        radial-gradient(circle, rgba(143, 67, 255, 0.18), transparent 70%);
+    filter: blur(12px);
+    pointer-events: none;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 1;
+    width: min(1000px, 100%);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-content h1 {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    line-height: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-shadow:
+        0 0 10px rgba(255, 45, 149, 0.95),
+        0 0 28px rgba(143, 67, 255, 0.75),
+        0 0 52px rgba(255, 214, 107, 0.35);
+}
+
+.footer-content h2 {
+    width: fit-content;
+    margin: 1.2rem auto 0;
+    padding: 0.65rem 1rem;
+    border: 1px solid rgba(255, 214, 107, 0.5);
+    border-radius: 999px;
+    color: #ffd66b;
+    background: rgba(12, 7, 26, 0.72);
+    box-shadow:
+        0 0 18px rgba(255, 214, 107, 0.16),
+        inset 0 0 18px rgba(255, 45, 149, 0.12);
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+}
+
+.footer-tagline {
+    margin: 1.4rem 0 0;
+    color: #eee4ff;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-shadow: 0 0 14px rgba(255, 45, 149, 0.35);
+}
+
+@media (max-width: 640px) {
+    .footer-section {
+        padding: 3.5rem 1rem;
+    }
+
+    .footer-content h1 {
+        letter-spacing: 0.07em;
+    }
+
+    .footer-content h2 {
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+    }
+}

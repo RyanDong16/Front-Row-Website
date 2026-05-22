@@ -1,0 +1,382 @@
+/* ================= MAIN SECTION ================= */
+
+.gallery-section {
+  min-height: 100vh;
+  padding: 90px 24px;
+
+  background:
+    radial-gradient(circle at top left, rgba(255, 0, 170, 0.18), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(0, 255, 255, 0.14), transparent 30%),
+    linear-gradient(180deg, #120018 0%, #080808 45%, #000000 100%);
+
+  color: white;
+  overflow: hidden;
+}
+
+/* ================= HEADER ================= */
+
+.gallery-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.gallery-tag {
+  color: #ff4fd8;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.gallery-header h1 {
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 900;
+  letter-spacing: 3px;
+
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #ff00c8,
+    0 0 25px #ff00c8;
+}
+
+/* ================= FEATURED IMAGE ================= */
+
+.featured-image-container {
+  width: min(100%, 900px);
+  margin: 0 auto 60px auto;
+
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+
+  border: 2px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow:
+    0 0 20px rgba(255, 0, 200, 0.35),
+    0 0 60px rgba(0, 255, 255, 0.12);
+}
+
+.featured-image {
+  width: 100%;
+  height: 70vh;
+  object-fit: cover;
+  display: block;
+}
+
+/* ================= ENLARGE BUTTON ================= */
+
+.expand-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  width: 60px;
+  height: 60px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.55);
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  z-index: 10;
+
+  backdrop-filter: blur(10px);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.expand-button:hover {
+  background: rgba(255, 0, 200, 0.75);
+
+  transform: scale(1.08);
+
+  box-shadow:
+    0 0 15px rgba(255, 0, 200, 0.8),
+    0 0 35px rgba(0, 255, 255, 0.25);
+}
+
+/* ================= ARROWS ================= */
+
+.gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 65px;
+  height: 65px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.45);
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  z-index: 10;
+
+  backdrop-filter: blur(8px);
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.gallery-arrow:hover {
+  background: rgba(255, 0, 200, 0.75);
+
+  box-shadow:
+    0 0 15px rgba(255, 0, 200, 0.8),
+    0 0 30px rgba(0, 255, 255, 0.3);
+
+  transform: translateY(-50%) scale(1.08);
+}
+
+.left-arrow {
+  left: 20px;
+}
+
+.right-arrow {
+  right: 20px;
+}
+
+/* ================= FEATURED OVERLAY ================= */
+
+.featured-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  padding: 40px 30px;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95),
+    rgba(0, 0, 0, 0.2),
+    transparent
+  );
+}
+
+.featured-overlay h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 10px;
+
+  text-shadow:
+    0 0 10px #ff00c8,
+    0 0 20px #ff00c8;
+}
+
+.featured-overlay p {
+  color: #dddddd;
+  max-width: 650px;
+  line-height: 1.6;
+}
+
+/* ================= FULLSCREEN MODE ================= */
+
+.fullscreen-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.95);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+
+  animation: fadeIn 0.3s ease;
+}
+
+.fullscreen-image {
+  max-width: 92%;
+  max-height: 90vh;
+
+  object-fit: contain;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 0 25px rgba(255, 0, 200, 0.45),
+    0 0 60px rgba(0, 255, 255, 0.18);
+}
+
+/* ================= CLOSE BUTTON ================= */
+
+.close-fullscreen {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+
+  width: 65px;
+  height: 65px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(8px);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.close-fullscreen:hover {
+  background: rgba(255, 0, 200, 0.8);
+
+  transform: scale(1.08);
+
+  box-shadow:
+    0 0 15px rgba(255, 0, 200, 0.7),
+    0 0 30px rgba(0, 255, 255, 0.25);
+}
+
+/* Fullscreen Arrow Positions */
+
+.fullscreen-left {
+  left: 30px;
+}
+
+.fullscreen-right {
+  right: 30px;
+}
+
+/* ================= GRID ================= */
+
+.gallery-grid {
+  width: min(1400px, 100%);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+}
+
+/* ================= GALLERY CARDS ================= */
+
+.gallery-card {
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 20px;
+  cursor: pointer;
+
+  background: rgba(255, 255, 255, 0.04);
+  border: 2px solid transparent;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border 0.35s ease;
+
+  backdrop-filter: blur(8px);
+}
+
+.gallery-card:hover {
+  transform: translateY(-8px) scale(1.02);
+
+  box-shadow:
+    0 0 18px rgba(255, 0, 200, 0.45),
+    0 0 35px rgba(0, 255, 255, 0.18);
+}
+
+.gallery-card.active {
+  border: 2px solid #ff00c8;
+
+  box-shadow:
+    0 0 15px rgba(255, 0, 200, 0.8),
+    0 0 35px rgba(0, 255, 255, 0.25);
+}
+
+.gallery-image {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+
+  transition: transform 0.4s ease;
+}
+
+.gallery-card:hover .gallery-image {
+  transform: scale(1.08);
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .gallery-section {
+    padding: 70px 16px;
+  }
+
+  .featured-image {
+    height: 55vh;
+  }
+
+  .featured-overlay {
+    padding: 25px 20px;
+  }
+
+  .gallery-arrow {
+    width: 50px;
+    height: 50px;
+  }
+
+  .expand-button {
+    width: 50px;
+    height: 50px;
+  }
+
+  .close-fullscreen {
+    width: 55px;
+    height: 55px;
+    top: 20px;
+    right: 20px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+  }
+
+  .gallery-image {
+    height: 180px;
+  }
+}
