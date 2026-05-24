@@ -1,139 +1,100 @@
-import { useState } from "react";
-import {
-  ChevronLeft,
-  ChevronRight,
-  Maximize2,
-  X,
-} from "lucide-react";
-
 import "../css/GallerySection.css";
 
 const galleryImages = [
-  "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1200&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=1200&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1200&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1200&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1200&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?q=80&w=1200&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1521334884684-d80222895322?q=80&w=1200&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=1200&auto=format&fit=crop",
+    {
+        src: "https://images.unsplash.com/photo-1648808678096-18f488fd6858?auto=format&fit=crop&q=80&w=1400",
+        alt: "Open mic stage with neon lights",
+        title: "Open Mic Energy",
+        label: "Featured"
+    },
+    {
+        src: "https://images.unsplash.com/photo-1580188928585-0ef5c1a5c4dd?auto=format&fit=crop&q=80&w=1000",
+        alt: "Microphone on stage",
+        title: "Center Stage",
+        label: "Comedy"
+    },
+    {
+        src: "https://images.unsplash.com/photo-1641903806973-17eaf2d2634f?auto=format&fit=crop&q=80&w=1000",
+        alt: "Microphone stand against a brick wall",
+        title: "The First Joke",
+        label: "Mic"
+    },
+    {
+        src: "https://images.unsplash.com/photo-1769761341012-526493327ac7?auto=format&fit=crop&q=80&w=1000",
+        alt: "Neon sign in a performance venue",
+        title: "Yes, And...",
+        label: "Improv"
+    },
+    {
+        src: "https://images.unsplash.com/photo-1676638281470-94102958b8e7?auto=format&fit=crop&q=80&w=1000",
+        alt: "Small stage with microphone",
+        title: "Front Row Seat",
+        label: "Spotlight"
+    },
+    {
+        src: "https://images.unsplash.com/photo-1574155376612-bfa4ed8aabfd?auto=format&fit=crop&q=80&w=1000",
+        alt: "Crowd under nightclub stage lights",
+        title: "Crowd Heat",
+        label: "Nightclub"
+    },
+    {
+        src: "https://images.unsplash.com/photo-1630395822970-acd6a691d97e?auto=format&fit=crop&q=80&w=1000",
+        alt: "Nightclub crowd under colorful lights",
+        title: "Late Night Lights",
+        label: "Club"
+    },
+    {
+        src: "https://images.unsplash.com/photo-1687511844598-165c1fc387cc?auto=format&fit=crop&q=80&w=1000",
+        alt: "Audience under colorful concert lighting",
+        title: "The Big Laugh",
+        label: "Audience"
+    }
 ];
 
 const GallerySection = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isExpanded, setIsExpanded] = useState(false);
+    const mainImage = galleryImages[0];
+    const gridImages = galleryImages.slice(1);
 
-  const nextImage = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === galleryImages.length - 1 ? 0 : prevIndex + 1
-    );
-  };
+    return (
+        <section className="gallery-section">
+            <div className="gallery-spotlight"></div>
 
-  const prevImage = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? galleryImages.length - 1 : prevIndex - 1
-    );
-  };
+            <div className="gallery-content">
+                <p className="gallery-kicker">Behind the Scenes</p>
 
-  return (
-    <section className="gallery-section">
-      {/* Header */}
-      <div className="gallery-header">
-        <p className="gallery-tag">Late Night Laughs & Neon Nights</p>
-        <h1>Comedy Club Gallery</h1>
-      </div>
+                <h1 className="gallery-title">Gallery</h1>
 
-      {/* Featured Image */}
-      <div className="featured-image-container">
-        <img
-          src={galleryImages[currentIndex]}
-          alt="Featured comedy club"
-          className="featured-image"
-        />
+                <p className="gallery-intro">
+                    A neon-lit look into the stage, the crowd, the microphone, and the late-night
+                    comedy club energy behind Front Row.
+                </p>
 
-        {/* Left Arrow */}
-        <button className="gallery-arrow left-arrow" onClick={prevImage}>
-          <ChevronLeft size={40} />
-        </button>
+                <div className="gallery-frame">
+                    <article className="gallery-main-feature">
+                        <img src={mainImage.src} alt={mainImage.alt} />
 
-        {/* Right Arrow */}
-        <button className="gallery-arrow right-arrow" onClick={nextImage}>
-          <ChevronRight size={40} />
-        </button>
+                        <div className="gallery-main-caption">
+                            <span>{mainImage.label}</span>
+                            <h2>{mainImage.title}</h2>
+                        </div>
+                    </article>
 
-        {/* Enlarge Button */}
-        <button
-          className="expand-button"
-          onClick={() => setIsExpanded(true)}
-        >
-          <Maximize2 size={28} />
-        </button>
+                    <div className="gallery-grid">
+                        {gridImages.map((image, index) => (
+                            <article className="gallery-item" key={index}>
+                                <img src={image.src} alt={image.alt} />
 
-        {/* Overlay */}
-        <div className="featured-overlay">
-          <h2>Saturday Spotlight</h2>
-          <p>
-            Electric crowds, neon vibes, unforgettable stand-up performances,
-            and nonstop nightlife energy.
-          </p>
-        </div>
-      </div>
-
-      {/* Expanded Fullscreen View */}
-      {isExpanded && (
-        <div className="fullscreen-overlay">
-          {/* Close Button */}
-          <button
-            className="close-fullscreen"
-            onClick={() => setIsExpanded(false)}
-          >
-            <X size={38} />
-          </button>
-
-          {/* Fullscreen Image */}
-          <img
-            src={galleryImages[currentIndex]}
-            alt="Expanded gallery"
-            className="fullscreen-image"
-          />
-
-          {/* Fullscreen Arrows */}
-          <button
-            className="gallery-arrow fullscreen-left"
-            onClick={prevImage}
-          >
-            <ChevronLeft size={45} />
-          </button>
-
-          <button
-            className="gallery-arrow fullscreen-right"
-            onClick={nextImage}
-          >
-            <ChevronRight size={45} />
-          </button>
-        </div>
-      )}
-
-      {/* Gallery Grid */}
-      <div className="gallery-grid">
-        {galleryImages.map((image, index) => (
-          <div
-            key={index}
-            className={`gallery-card ${
-              currentIndex === index ? "active" : ""
-            }`}
-            onClick={() => setCurrentIndex(index)}
-          >
-            <img
-              src={image}
-              alt={`Gallery ${index + 1}`}
-              className="gallery-image"
-            />
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-};
+                                <div className="gallery-caption">
+                                    <span>{image.label}</span>
+                                    <h2>{image.title}</h2>
+                                </div>
+                            </article>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
+}
 
 export default GallerySection;
