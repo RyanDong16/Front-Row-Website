@@ -1,4 +1,5 @@
 import "../css/AboutSection.css";
+import frontRowPoster from "../photo assets/About Page/Front Row Poster -1.jpg";
 
 const AboutSection = () => {
     return (
@@ -7,7 +8,7 @@ const AboutSection = () => {
                 <div className="about-content">
                     <h1 className="about-title">About</h1>
 
-                    <div className="about-card featured-card">
+                    <div className="about-text-section featured-section">
                         <h2>Logline</h2>
                         <p>
                             A sound guy at a comedy club remembers his late brother’s
@@ -15,7 +16,19 @@ const AboutSection = () => {
                         </p>
                     </div>
 
-                    <div className="about-card">
+                    <div className="poster-marquee">
+                        <div className="poster-bulbs poster-bulbs-top"></div>
+
+                        <img
+                            src={frontRowPoster}
+                            alt="Front Row official film poster"
+                            className="about-poster"
+                        />
+
+                        <div className="poster-bulbs poster-bulbs-bottom"></div>
+                    </div>
+
+                    <div className="about-text-section synopsis-section">
                         <h2>Synopsis</h2>
                         <p>
                             A young comedian is about to perform at his first open mic, but suddenly
@@ -33,7 +46,7 @@ const AboutSection = () => {
                         </p>
                     </div>
 
-                    <div className="about-card quote-card">
+                    <div className="about-text-section inspiration-section">
                         <h2>Inspiration</h2>
                         <p>
                             “I’ve always had a passion for comedy. I grew up watching Chris

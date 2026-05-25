@@ -6,7 +6,7 @@
         radial-gradient(circle at bottom center, rgba(255, 190, 80, 0.18), transparent 35%),
         linear-gradient(135deg, #07030d 0%, #12051f 45%, #050509 100%);
     color: #f8f2ff;
-    padding: 6rem 1.5rem;
+    padding: 6rem 0;
     position: relative;
     overflow: hidden;
 }
@@ -39,14 +39,16 @@
 .about-overlay {
     position: relative;
     z-index: 1;
-    max-width: 1100px;
+    width: 100%;
     margin: 0 auto;
 }
 
 .about-content {
+    width: min(1400px, 100%);
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 4rem;
 }
 
 .about-title {
@@ -63,69 +65,166 @@
         0 0 60px rgba(255, 214, 107, 0.45);
 }
 
-.about-card {
-    background: rgba(12, 8, 24, 0.78);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 24px;
-    padding: clamp(1.5rem, 4vw, 3rem);
-    box-shadow:
-        0 22px 60px rgba(0, 0, 0, 0.45),
-        inset 0 0 32px rgba(177, 38, 255, 0.08);
-    backdrop-filter: blur(14px);
+.about-text-section {
+    width: 100%;
+    padding: 0 clamp(1rem, 5vw, 5rem);
     position: relative;
 }
 
-.about-card::before {
+.about-text-section::before {
     content: "";
     position: absolute;
-    inset: 0;
-    border-radius: 24px;
-    padding: 1px;
+    left: clamp(1rem, 5vw, 5rem);
+    right: clamp(1rem, 5vw, 5rem);
+    top: -1.5rem;
+    height: 2px;
     background: linear-gradient(
-        135deg,
-        rgba(255, 214, 107, 0.8),
-        rgba(255, 45, 149, 0.35),
-        rgba(177, 38, 255, 0.5)
+        90deg,
+        transparent,
+        rgba(255, 79, 184, 0.85),
+        rgba(255, 214, 107, 0.75),
+        transparent
     );
-    mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    pointer-events: none;
+    box-shadow:
+        0 0 12px rgba(255, 79, 184, 0.7),
+        0 0 18px rgba(255, 214, 107, 0.35);
 }
 
-.featured-card {
-    text-align: center;
-    background:
-        linear-gradient(135deg, rgba(255, 45, 149, 0.18), rgba(177, 38, 255, 0.14)),
-        rgba(12, 8, 24, 0.82);
-}
-
-.quote-card {
-    border-left: 5px solid #ffd66b;
-}
-
-.about-card h2 {
+.about-text-section h2 {
     margin: 0 0 1rem;
     color: #ffd66b;
-    font-size: clamp(1.6rem, 4vw, 2.5rem);
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
     text-transform: uppercase;
     letter-spacing: 0.08em;
     text-shadow: 0 0 14px rgba(255, 214, 107, 0.45);
 }
 
-.about-card p {
+.about-text-section p {
     margin: 0;
+    max-width: 1100px;
     color: #eee4ff;
-    font-size: clamp(1rem, 2vw, 1.15rem);
-    line-height: 1.85;
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    line-height: 1.9;
+}
+
+.featured-section {
+    text-align: center;
+}
+
+.featured-section p {
+    margin: 0 auto;
+    max-width: 900px;
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    line-height: 1.5;
+    color: #ffffff;
+    text-shadow:
+        0 0 14px rgba(255, 45, 149, 0.45),
+        0 0 28px rgba(143, 67, 255, 0.3);
+}
+
+.synopsis-section,
+.inspiration-section {
+    align-self: stretch;
+}
+
+.synopsis-section p,
+.inspiration-section p {
+    max-width: 1180px;
+}
+
+.inspiration-section p {
+    font-style: italic;
+    border-left: 4px solid rgba(255, 214, 107, 0.75);
+    padding-left: 1.5rem;
+}
+
+/* Poster marquee */
+
+.poster-marquee {
+    width: min(420px, 88vw);
+    margin: 0 auto;
+    position: relative;
+    padding: 1.15rem;
+    border-radius: 28px;
+    background:
+        linear-gradient(135deg, rgba(255, 214, 107, 0.9), rgba(255, 45, 149, 0.75), rgba(143, 67, 255, 0.9)),
+        rgba(10, 5, 22, 0.9);
+    box-shadow:
+        0 26px 70px rgba(0, 0, 0, 0.58),
+        0 0 28px rgba(255, 214, 107, 0.35),
+        0 0 42px rgba(255, 45, 149, 0.28),
+        0 0 58px rgba(143, 67, 255, 0.2);
+}
+
+.poster-marquee::before {
+    content: "";
+    position: absolute;
+    inset: 0.45rem;
+    border-radius: 22px;
+    border: 2px solid rgba(255, 255, 255, 0.32);
+    box-shadow:
+        inset 0 0 18px rgba(255, 214, 107, 0.25),
+        0 0 18px rgba(255, 255, 255, 0.18);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.poster-marquee::after {
+    content: "";
+    position: absolute;
+    inset: -0.35rem;
+    border-radius: 32px;
+    background:
+        radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.42), transparent 8%),
+        radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.42), transparent 8%),
+        radial-gradient(circle at 20% 90%, rgba(255, 255, 255, 0.42), transparent 8%),
+        radial-gradient(circle at 80% 90%, rgba(255, 255, 255, 0.42), transparent 8%);
+    pointer-events: none;
+    z-index: 3;
+}
+
+.about-poster {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: block;
+    border-radius: 18px;
+    border: 1px solid rgba(5, 2, 8, 0.65);
+    box-shadow:
+        inset 0 0 22px rgba(0, 0, 0, 0.45),
+        0 16px 38px rgba(0, 0, 0, 0.5);
+}
+
+.poster-bulbs {
+    position: absolute;
+    left: 1.45rem;
+    right: 1.45rem;
+    height: 12px;
+    z-index: 4;
+    background-image: radial-gradient(circle, #fff6c8 0 35%, #ffd66b 36% 52%, transparent 54%);
+    background-size: 32px 12px;
+    background-repeat: repeat-x;
+    filter:
+        drop-shadow(0 0 6px rgba(255, 214, 107, 0.9))
+        drop-shadow(0 0 12px rgba(255, 45, 149, 0.35));
+    pointer-events: none;
+}
+
+.poster-bulbs-top {
+    top: 0.72rem;
+}
+
+.poster-bulbs-bottom {
+    bottom: 0.72rem;
 }
 
 .film-details {
+    width: 100%;
+    padding: 0 clamp(1rem, 5vw, 5rem);
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1rem;
-    margin-top: 1rem;
+    margin-top: 0;
 }
 
 .detail-item {
@@ -162,20 +261,64 @@
     font-weight: 700;
 }
 
+@media (max-width: 900px) {
+    .film-details {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
 @media (max-width: 760px) {
     .about-section {
         padding: 4rem 1rem;
     }
 
+    .about-content {
+        gap: 3rem;
+    }
+
+    .about-title {
+        margin-bottom: 0;
+    }
+
+    .about-text-section {
+        padding: 0;
+    }
+
+    .about-text-section::before {
+        left: 0;
+        right: 0;
+    }
+
+    .inspiration-section p {
+        padding-left: 1rem;
+    }
+
+    .poster-marquee {
+        width: min(360px, 92vw);
+        padding: 0.9rem;
+        border-radius: 22px;
+    }
+
+    .poster-marquee::before {
+        border-radius: 18px;
+    }
+
+    .about-poster {
+        border-radius: 14px;
+    }
+
+    .poster-bulbs {
+        left: 1.1rem;
+        right: 1.1rem;
+        background-size: 26px 10px;
+    }
+
     .film-details {
         grid-template-columns: 1fr;
+        padding: 0;
     }
 
-    .about-card {
-        border-radius: 18px;
-    }
-
-    .about-card::before {
-        border-radius: 18px;
+    .detail-item {
+        border-radius: 16px;
     }
 }
