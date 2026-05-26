@@ -170,17 +170,7 @@
 }
 
 .poster-marquee::after {
-    content: "";
-    position: absolute;
-    inset: -0.35rem;
-    border-radius: 32px;
-    background:
-        radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.42), transparent 8%),
-        radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.42), transparent 8%),
-        radial-gradient(circle at 20% 90%, rgba(255, 255, 255, 0.42), transparent 8%),
-        radial-gradient(circle at 80% 90%, rgba(255, 255, 255, 0.42), transparent 8%);
-    pointer-events: none;
-    z-index: 3;
+    content: none;
 }
 
 .about-poster {
@@ -199,10 +189,16 @@
     position: absolute;
     left: 1.45rem;
     right: 1.45rem;
-    height: 12px;
+    height: 14px;
     z-index: 4;
-    background-image: radial-gradient(circle, #fff6c8 0 35%, #ffd66b 36% 52%, transparent 54%);
-    background-size: 32px 12px;
+    background-image: radial-gradient(
+        circle,
+        #fff6c8 0 0.28rem,
+        #ffd66b 0.29rem 0.42rem,
+        transparent 0.43rem
+    );
+    background-size: 32px 14px;
+    background-position: center;
     background-repeat: repeat-x;
     filter:
         drop-shadow(0 0 6px rgba(255, 214, 107, 0.9))
@@ -310,7 +306,8 @@
     .poster-bulbs {
         left: 1.1rem;
         right: 1.1rem;
-        background-size: 26px 10px;
+        height: 12px;
+        background-size: 26px 12px;
     }
 
     .film-details {

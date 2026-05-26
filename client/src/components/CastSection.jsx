@@ -1,6 +1,10 @@
+import { useState } from "react";
 import "../css/CastSection.css";
+import angelHuertaImage from "../photo assets/Cast Page/DSC00243.jpeg";
 
 const CastSection = () => {
+    const [showAngelText, setShowAngelText] = useState(false);
+
     return (
         <section className="cast-section">
             <div className="cast-spotlight"></div>
@@ -19,20 +23,47 @@ const CastSection = () => {
                             </h2>
                         </div>
 
-                        <p>
-                            “My name is Angel Huerta and I am an actor out of Chula Vista,
-                            California. I’m 24 years old but I will always be a kid at heart. I love
-                            to read, write and watch movies and my favorite sports team to suffer
-                            with is the SAN DIEGO Chargers. My goal as an actor is to fully embrace
-                            my characters through physical touch, emotion and thoughts. If I’m not
-                            making you laugh, cry or smile, I hope I’m still finding a way to stay in
-                            your heart or mind. As a kid, I’ve always wanted to be an actor but
-                            didn’t have the confidence to do it. Needing an extra class in community
-                            college caused me to finally take a shot at the craft and ever since then
-                            I’ve only fallen more in love with acting. I have been extremely blessed
-                            throughout my entire career with multiple acting opportunities in student
-                            films, agency interests and becoming SAG-Eligible.”
-                        </p>
+                        {!showAngelText ? (
+                            <button
+                                className="cast-image-button"
+                                type="button"
+                                onClick={() => setShowAngelText(true)}
+                                aria-label="Show Angel Huerta biography"
+                            >
+                                <img
+                                    src={angelHuertaImage}
+                                    alt="Angel Huerta"
+                                    className="cast-member-image"
+                                />
+                            </button>
+                        ) : (
+                            <div
+                                className="cast-bio-text"
+                                role="button"
+                                tabIndex="0"
+                                onClick={() => setShowAngelText(false)}
+                                onKeyDown={(event) => {
+                                    if (event.key === "Enter" || event.key === " ") {
+                                        setShowAngelText(false);
+                                    }
+                                }}
+                            >
+                                <p>
+                                    “My name is Angel Huerta and I am an actor out of Chula Vista,
+                                    California. I’m 24 years old but I will always be a kid at heart. I love
+                                    to read, write and watch movies and my favorite sports team to suffer
+                                    with is the SAN DIEGO Chargers. My goal as an actor is to fully embrace
+                                    my characters through physical touch, emotion and thoughts. If I’m not
+                                    making you laugh, cry or smile, I hope I’m still finding a way to stay in
+                                    your heart or mind. As a kid, I’ve always wanted to be an actor but
+                                    didn’t have the confidence to do it. Needing an extra class in community
+                                    college caused me to finally take a shot at the craft and ever since then
+                                    I’ve only fallen more in love with acting. I have been extremely blessed
+                                    throughout my entire career with multiple acting opportunities in student
+                                    films, agency interests and becoming SAG-Eligible.”
+                                </p>
+                            </div>
+                        )}
                     </article>
 
                     <article className="cast-card">
