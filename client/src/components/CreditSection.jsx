@@ -169,6 +169,11 @@ const CreditSection = () => {
                     <h2>Catering by</h2>
                     <p>Birdie's Craft Services</p>
                 </div>
+
+                <div className="developer-card">
+                    <h2>Website Developed by</h2>
+                    <p>Ryan Dong</p>
+                </div>
             </div>
         </section>
     )

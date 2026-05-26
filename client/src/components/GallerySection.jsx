@@ -3,9 +3,9 @@ import "../css/GallerySection.css";
 
 const galleryImageModules = import.meta.glob(
     [
-    "../photo assets/Gallery Page/BTS/*.{jpg,jpeg,JPG,JPEG}",
-    "../photo assets/Gallery Page/Stills/DaVinci Stills/*.{jpg,jpeg,JPG,JPEG}",
-    "../photo assets/Gallery Page/Stills/Premiere Stills/*.{jpg,jpeg,JPG,JPEG}",
+        "../photo assets/Gallery Page/BTS/*.{jpg,jpeg,png,JPG,JPEG,PNG}",
+        "../photo assets/Gallery Page/Stills/DaVinci Stills/*.{jpg,jpeg,png,JPG,JPEG,PNG}",
+        "../photo assets/Gallery Page/Stills/Premiere Stills/*.{jpg,jpeg,png,JPG,JPEG,PNG}"
     ],
     {
         eager: true,
@@ -14,7 +14,9 @@ const galleryImageModules = import.meta.glob(
     }
 );
 
-const galleryImages = Object.values(galleryImageModules);
+const galleryImages = Object.entries(galleryImageModules)
+    .sort(([pathA], [pathB]) => pathA.localeCompare(pathB))
+    .map(([, imageUrl]) => imageUrl);
 
 const GallerySection = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -41,7 +43,9 @@ const GallerySection = () => {
                 <div className="gallery-content">
                     <h1 className="gallery-title">Gallery</h1>
                     <p className="gallery-intro">
-                        No gallery images found. Add JPG files to src/photo assets/Gallery Page/.
+                        No gallery images found. Add images to src/photo assets/Gallery Page/BTS/,
+                        src/photo assets/Gallery Page/Stills/DaVinci Stills/, or
+                        src/photo assets/Gallery Page/Stills/Premiere Stills/.
                     </p>
                 </div>
             </section>
@@ -111,7 +115,7 @@ const GallerySection = () => {
                                         ? "gallery-item gallery-item-active"
                                         : "gallery-item"
                                 }
-                                key={image}
+                                key={`${image}-${index}`}
                                 type="button"
                                 onClick={() => setActiveIndex(index)}
                                 aria-label={`Show gallery image ${index + 1}`}
