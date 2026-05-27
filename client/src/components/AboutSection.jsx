@@ -46,8 +46,9 @@ const AboutSection = () => {
                             how to turn tragedy into comedy. I am thankful for the dedicated
                             cast and crew who made this film exactly how I envisioned. To
                             anyone who watches this film, all I can say is grab a front row seat
-                            to a story that is uplifting, bittersweet, and full of surprises.”
+                            to a story that is uplifting, bittersweet, and full of surprises.” 
                         </p>
+                        <p>- Julian Rodriguez</p>
                     </div>
 
                     <div className="film-details">
