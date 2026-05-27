@@ -122,16 +122,6 @@
         0 0 28px rgba(143, 67, 255, 0.3);
 }
 
-.synopsis-section,
-.inspiration-section {
-    align-self: stretch;
-}
-
-.synopsis-section p,
-.inspiration-section p {
-    max-width: 1180px;
-}
-
 .inspiration-section p {
     font-style: italic;
     border-left: 4px solid rgba(255, 214, 107, 0.75);

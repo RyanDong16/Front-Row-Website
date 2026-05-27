@@ -1,5 +1,9 @@
 import "../css/CrewSection.css";
 
+import julianRodriguezImage from "../photo assets/Crew Page/Julian headshot.jpg";
+import sydneySimmonsImage from "../photo assets/Crew Page/Sydney Simmons headshot.jpeg";
+import lucasBuckImage from "../photo assets/Crew Page/Lucas Buck headshot.jpg";
+
 const CrewSection = () => {
     return (
         <section className="crew-section">
@@ -19,28 +23,40 @@ const CrewSection = () => {
                             </div>
                         </div>
 
-                        <p>
-                            Julian Rodriguez is a filmmaker based in San Diego with a
-                            passion for telling stories that thrill and inspire audiences.
-                            He studies filmmaking at San Diego State University with a
-                            focus on screenwriting and directing.
-                        </p>
+                        <div className="crew-member-layout">
+                            <div className="crew-member-image-wrapper">
+                                <img
+                                    src={julianRodriguezImage}
+                                    alt="Julian Rodriguez"
+                                    className="crew-member-image"
+                                />
+                            </div>
 
-                        <p>
-                            Throughout his academic career, Rodriguez has written
-                            and directed numerous films in a variety of genres
-                            including horror, drama, and comedy. As a student, he had
-                            the opportunity to be a Film Publicity and Promotions
-                            Intern at Allied Global Marketing, in which he promoted
-                            major blockbusters on radio, television, and at live events.
-                            Rodriguez also taught filmmaking to children and
-                            teenagers at Media Arts Center San Diego.
-                        </p>
+                            <div className="crew-member-text">
+                                <p>
+                                    Julian Rodriguez is a filmmaker based in San Diego with a
+                                    passion for telling stories that thrill and inspire audiences.
+                                    He studies filmmaking at San Diego State University with a
+                                    focus on screenwriting and directing.
+                                </p>
 
-                        <p>
-                            Overall, Julian Rodriguez is driven to entertain audiences
-                            and make every short film feel epic.
-                        </p>
+                                <p>
+                                    Throughout his academic career, Rodriguez has written
+                                    and directed numerous films in a variety of genres
+                                    including horror, drama, and comedy. As a student, he had
+                                    the opportunity to be a Film Publicity and Promotions
+                                    Intern at Allied Global Marketing, in which he promoted
+                                    major blockbusters on radio, television, and at live events.
+                                    Rodriguez also taught filmmaking to children and
+                                    teenagers at Media Arts Center San Diego.
+                                </p>
+
+                                <p>
+                                    Overall, Julian Rodriguez is driven to entertain audiences
+                                    and make every short film feel epic.
+                                </p>
+                            </div>
+                        </div>
                     </article>
 
                     <article className="crew-card">
@@ -50,6 +66,14 @@ const CrewSection = () => {
                                 <h2>Sydney Simmons</h2>
                                 <p className="crew-role">Producer</p>
                             </div>
+                        </div>
+
+                        <div className="crew-member-image-wrapper">
+                            <img
+                                src={sydneySimmonsImage}
+                                alt="Sydney Simmons"
+                                className="crew-member-image"
+                            />
                         </div>
 
                         <p>
@@ -68,6 +92,14 @@ const CrewSection = () => {
                                 <h2>Lucas Buck</h2>
                                 <p className="crew-role">Composer</p>
                             </div>
+                        </div>
+
+                        <div className="crew-member-image-wrapper">
+                            <img
+                                src={lucasBuckImage}
+                                alt="Lucas Buck"
+                                className="crew-member-image"
+                            />
                         </div>
 
                         <p>

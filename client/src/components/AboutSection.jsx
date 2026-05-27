@@ -28,24 +28,6 @@ const AboutSection = () => {
                         <div className="poster-bulbs poster-bulbs-bottom"></div>
                     </div>
 
-                    <div className="about-text-section synopsis-section">
-                        <h2>Synopsis</h2>
-                        <p>
-                            A young comedian is about to perform at his first open mic, but suddenly
-                            receives news that his brother died in an accident. Two years later, this
-                            young man has given up his dream to do comedy, but now works as a
-                            sound guy at his favorite comedy club. One night, a famous headliner
-                            comes to the club, but is arrogant, drunk, and out of control. The
-                            headliner drunkenly crashes out onstage. The manager storms the
-                            headliner out of the room, leaving Alex alone with the crowd. Alex steps
-                            onstage and tries to calm the angry audience. All of a sudden, he notices
-                            an empty chair in the front and can hear his brother's encouraging voice.
-                            He starts telling jokes and the audience can't take their eyes off of him. At
-                            the end of his set, Alex realizes that although his brother passed, he will
-                            always be watching in the front row.
-                        </p>
-                    </div>
-
                     <div className="about-text-section inspiration-section">
                         <h2>Inspiration</h2>
                         <p>
