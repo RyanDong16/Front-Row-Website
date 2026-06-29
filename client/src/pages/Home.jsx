@@ -1,5 +1,6 @@
 import frontRowImage from "../photo assets/Home Page/fr title.jpg";
 import "../css/Home.css";
+import awardSelection from "../photo assets/Home Page/Not One of Us SAFilm IG Announcement.PNG";
 
 const Home = () => {
     return (
@@ -25,6 +26,12 @@ const Home = () => {
                 >
                     Watch Trailer
                 </a>
+
+                <img
+                    src={awardSelection}
+                    alt="Award selection announcement for Front Row"
+                    className="front-row-selection-image"
+                />
             </div>
         </section>
     )
