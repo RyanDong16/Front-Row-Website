@@ -1,8 +1,8 @@
 import frontRowImage from "../photo assets/Home Page/fr title.jpg";
 import "../css/Home.css";
-import awardSAFilm from "../photo assets/Home Page/Not One of Us SAFilm IG Announcement.PNG";
-import awardGreatFilmClub from "../photo assets/Home Page/Front Row Latino Cine Night v2.jpg";
-import awardLaurel from "../photo assets/Home Page/official selection laurel wht.png";
+import selectionSAFilm from "../photo assets/Home Page/selectionSAFilm.png";
+import selectionCoronado from "../photo assets/Home Page/selectionCoronado.png";
+import selectionTGFC from "../photo assets/Home Page/selectionTGFC.png";
 
 const Home = () => {
     return (
@@ -17,7 +17,7 @@ const Home = () => {
                 />
 
                 <p className="home-tagline">
-                    Welcome to the official Front Row Movie website.
+                    Welcome to the official Front Row Movie website
                 </p>
 
                 <a
@@ -30,19 +30,19 @@ const Home = () => {
                 </a>
 
                 <img
-                    src={awardSAFilm}
+                    src={selectionSAFilm}
                     alt="SA Film Selection"
-                    className="front-row-selection-image"
+                    className="selection-SAFilm-image"
                 />
                 <img
-                    src={awardGreatFilmClub}
+                    src={selectionCoronado}
+                    alt="Coronado Selection"
+                    className="selection-Coronado-image"
+                />
+                <img
+                    src={selectionTGFC}
                     alt="TGFC Selection"
-                    className="front-row-latino-cine-image"
-                />
-                <img
-                    src={awardLaurel}
-                    alt="Laurel Selection"
-                    className="front-row-laurel-image"
+                    className="selection-TGFC-image"
                 />
             </div>
         </section>

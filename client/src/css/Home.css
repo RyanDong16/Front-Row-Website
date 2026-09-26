@@ -65,12 +65,18 @@
     min-height: auto;
     margin: 0 auto;
     padding: 1rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
     align-items: center;
-    gap: 1.15rem;
+    gap: 1.5rem;
     text-align: center;
+}
+
+.front-row-image,
+.home-tagline,
+.trailer-link-btn {
+    grid-column: 1 / -1;
 }
 
 .front-row-image {
@@ -133,16 +139,20 @@
     outline: none;
 }
 
-.front-row-selection-image {
-    width: min(700px, 88vw);
-    height: 850px;
-    object-fit: fill;
+.selection-SAFilm-image,
+.selection-Coronado-image,
+.selection-TGFC-image {
+    width: 100%;
+    max-width: 360px;
+    height: 220px;
+    object-fit: contain;
     display: block;
-    margin: 3rem auto 0;
+    margin: 2.5rem auto 0;
     padding: 0;
     box-sizing: border-box;
     background: transparent;
-    border: 20px solid #ffd66b;
+    border: 8px solid #ffd66b;
+    border-radius: 10px;
     box-shadow:
         0 24px 64px rgba(0, 0, 0, 0.58),
         0 0 18px rgba(255, 214, 107, 0.55),
@@ -158,7 +168,21 @@
         border-color 0.28s ease;
 }
 
-.front-row-selection-image:hover {
+.selection-SAFilm-image {
+    grid-column: 1;
+}
+
+.selection-Coronado-image {
+    grid-column: 2;
+}
+
+.selection-TGFC-image {
+    grid-column: 3;
+}
+
+.selection-SAFilm-image:hover,
+.selection-Coronado-image:hover,
+.selection-TGFC-image:hover {
     transform: translateY(-6px) scale(1.025);
     border-color: #ffe79c;
     box-shadow:
@@ -168,84 +192,6 @@
         0 0 58px rgba(143, 67, 255, 0.24);
     filter:
         drop-shadow(0 0 16px rgba(255, 214, 107, 0.5))
-        drop-shadow(0 0 28px rgba(255, 45, 149, 0.28));
-}
-
-.front-row-latino-cine-image {
-    width: min(700px, 88vw);
-    max-height: 850px;
-    object-fit: contain;
-    display: block;
-    margin: 3rem auto 0;
-    padding: 0;
-    box-sizing: border-box;
-    background: transparent;
-    border: 20px solid #ffd66b;
-    border-radius: 10px;
-    box-shadow:
-        0 24px 64px rgba(0, 0, 0, 0.58),
-        0 0 18px rgba(255, 214, 107, 0.55),
-        0 0 34px rgba(255, 45, 149, 0.28),
-        0 0 48px rgba(143, 67, 255, 0.20);
-    filter:
-        drop-shadow(0 0 12px rgba(255, 214, 107, 0.35))
-        drop-shadow(0 0 22px rgba(255, 45, 149, 0.20));
-    transition:
-        transform 0.28s ease,
-        box-shadow 0.28s ease,
-        filter 0.28s ease,
-        border-color 0.28s ease;
-}
-
-.front-row-latino-cine-image:hover {
-    transform: translateY(-6px) scale(1.025);
-    border-color: #ffe79c;
-    box-shadow:
-        0 30px 78px rgba(0, 0, 0, 0.66),
-        0 0 24px rgba(255, 214, 107, 0.72),
-        0 0 42px rgba(255, 45, 149, 0.34),
-        0 0 58px rgba(143, 67, 255, 0.24);
-    filter:
-        drop-shadow(0 0 16px rgba(255, 214, 107, 0.50))
-        drop-shadow(0 0 28px rgba(255, 45, 149, 0.28));
-}
-
-.front-row-laurel-image {
-    width: min(700px, 88vw);
-    max-height: 850px;
-    object-fit: contain;
-    display: block;
-    margin: 3rem auto 0;
-    padding: 0;
-    box-sizing: border-box;
-    background: transparent;
-    border: 20px solid #ffd66b;
-    border-radius: 10px;
-    box-shadow:
-        0 24px 64px rgba(0, 0, 0, 0.58),
-        0 0 18px rgba(255, 214, 107, 0.55),
-        0 0 34px rgba(255, 45, 149, 0.28),
-        0 0 48px rgba(143, 67, 255, 0.20);
-    filter:
-        drop-shadow(0 0 12px rgba(255, 214, 107, 0.35))
-        drop-shadow(0 0 22px rgba(255, 45, 149, 0.20));
-    transition:
-        transform 0.28s ease,
-        box-shadow 0.28s ease,
-        filter 0.28s ease,
-        border-color 0.28s ease;
-}
-
-.front-row-laurel-image:hover {
-    transform: translateY(-6px) scale(1.025);
-    border-color: #ffe79c;
-    box-shadow:
-        0 30px 78px rgba(0, 0, 0, 0.66),
-        0 0 24px rgba(255, 214, 107, 0.72),
-        0 0 42px rgba(255, 45, 149, 0.34),
-        0 0 58px rgba(143, 67, 255, 0.24);
-    filter:
-        drop-shadow(0 0 16px rgba(255, 214, 107, 0.50))
         drop-shadow(0 0 28px rgba(255, 45, 149, 0.28));
 }
 
@@ -265,13 +211,22 @@
         max-width: 100%;
         margin: 0 auto;
         padding: 1rem 0.85rem;
-        gap: 1.4rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
         align-items: center;
+        gap: 1.4rem;
         text-align: center;
         overflow-x: hidden;
+    }
+
+    .front-row-image,
+    .home-tagline,
+    .trailer-link-btn,
+    .selection-SAFilm-image,
+    .selection-Coronado-image,
+    .selection-TGFC-image {
+        grid-column: 1;
     }
 
     .front-row-image {
@@ -301,38 +256,14 @@
         align-self: center;
     }
 
-    .front-row-selection-image {
+    .selection-SAFilm-image,
+    .selection-Coronado-image,
+    .selection-TGFC-image {
         width: 100%;
         max-width: 310px;
         height: auto;
         max-height: none;
-        margin: 2rem auto 0;
-        padding: 0;
-        border-radius: 8px;
-        border-width: 4px;
-        object-fit: contain;
-        display: block;
-    }
-
-    .front-row-latino-cine-image {
-        width: 100%;
-        max-width: 310px;
-        height: auto;
-        max-height: none;
-        margin: 2rem auto 0;
-        padding: 0;
-        border-width: 4px;
-        border-radius: 8px;
-        object-fit: contain;
-        display: block;
-    }
-
-    .front-row-laurel-image {
-        width: 100%;
-        max-width: 310px;
-        height: auto;
-        max-height: none;
-        margin: 2rem auto 0;
+        margin: 1.5rem auto 0;
         padding: 0;
         border-width: 4px;
         border-radius: 8px;
