@@ -1,6 +1,8 @@
 import frontRowImage from "../photo assets/Home Page/fr title.jpg";
 import "../css/Home.css";
-import awardSelection from "../photo assets/Home Page/Not One of Us SAFilm IG Announcement.PNG";
+import awardSAFilm from "../photo assets/Home Page/Not One of Us SAFilm IG Announcement.PNG";
+import awardGreatFilmClub from "../photo assets/Home Page/Front Row Latino Cine Night v2.jpg";
+import awardLaurel from "../photo assets/Home Page/official selection laurel wht.png";
 
 const Home = () => {
     return (
@@ -28,9 +30,19 @@ const Home = () => {
                 </a>
 
                 <img
-                    src={awardSelection}
-                    alt="Award selection announcement for Front Row"
+                    src={awardSAFilm}
+                    alt="SA Film Selection"
                     className="front-row-selection-image"
+                />
+                <img
+                    src={awardGreatFilmClub}
+                    alt="TGFC Selection"
+                    className="front-row-latino-cine-image"
+                />
+                <img
+                    src={awardLaurel}
+                    alt="Laurel Selection"
+                    className="front-row-laurel-image"
                 />
             </div>
         </section>
